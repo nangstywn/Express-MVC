@@ -1,0 +1,27 @@
+doctype html
+html(lang="en")
+    head
+    
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Tambah Buku
+        link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css', rel='stylesheet')
+    body
+        .container
+            .row
+                .col-md-12
+                    h1 Tambah Buku
+                    form(action="/books/store", method="post")
+                        .form-group
+                            label(for="title") Judul :
+                            input.form-control(type="text", name="title", id="title", placeholder="Judul Buku")
+                        .form-group
+                            label(for="author") Penulis :
+                            input.form-control(type="text", name="author", id="author", placeholder="Penulis Buku")
+                        .form-group
+                            label(for="tahun") Tahun Terbit :
+                            input.form-control(type="text", name="tahun", id="tahun", placeholder="Tahun Terbit Buku")
+                        
+                        .form-footer 
+                            button.btn.btn-primary(type="submit") Simpan

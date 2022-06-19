@@ -1,0 +1,35 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Daftar Buku
+        link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css', rel='stylesheet')
+        link(href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', rel='stylesheet')
+    body 
+        .container
+            .row
+                .col-md-12
+                    h1 Daftar Buku
+                    a(class='btn btn-primary' href='/books/create') Tambah Buku
+                    table.table.table-striped
+                        thead
+                            tr
+                                th No
+                                th Judul
+                                th Penulis
+                                th Tahun Terbit
+                                th Aksi
+                        tbody
+                            for book, index in data
+                                tr
+                                    td #{index+1}
+                                    td #{book.title}
+                                    td #{book.author}
+                                    td #{book.year}
+                                    td
+                                        form(action=`/books/${book.id}?_method=DELETE`, method="post")
+                                            a(class='btn btn-warning' href='/books/'+book.id+'/edit') Edit 
+                                            
+                                            input(class='btn btn-danger' type="submit", value="Hapus") 
